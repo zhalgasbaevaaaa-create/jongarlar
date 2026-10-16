@@ -1,32 +1,43 @@
-# React + TypeScript + Vite
+# Қазақ–жоңғар соғыстары — интерактивті тарихи атлас
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+XVII ғ. соңы — XVIII ғ. (1635–1771) аралығындағы қазақ-жоңғар соғыстарына арналған
+білім беру атласы: анимацияланған жорық бағыттары, уақыт жолағы, оқиға карточкалары,
+тұлғалар, дереккөздер мен нақтысыздық белгілері.
 
-Currently, two official plugins are available:
+🌍 **Тірі мекенжай:** https://zhalgasbaevaaaa-create.github.io/jongarlar/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Мазмұны
+- 10 таңдамалы оқиға (Орбұлақ, Тәуке дәуірі, Ақтабан шұбырынды, Ордабасы, Бұланты,
+  Аңырақай, Малдымода, Жоңғарияның құлауы, Торғайт қонысы…)
+- Әр оқиғаның **өз** бағыттары мен анимация кестесі (қайталанбайды)
+- Маршруттар біртіндеп сызылады, қосын «бастары» уақыт бойынша жылжиды
+- Нақтысыздық: ≈ жуық нүктелер, ±? талас жерлер — барлығы дереккөз ескертпесімен
+- Басқару: ойнату/үзілу/қайта/0.5–3× жылдамдық, «Толық жорық» режимі, scrub
+- Респонсив: десктоп / планшет / телефон
 
-## React Compiler
+## Технологиейі
+React + TypeScript + Vite, MapLibre GL JS (GeoJSON-тек), нақты фотосуретсіз —
+барлық белгі мен жебе кодпен салынады. Карта түбі: ашық OpenStreetMap тайлдары (ODbL),
+вектор қабаты Natural Earth (public domain) — барлық лицензия сайттың
+«Дереккөздер» бөлімінде көрсетілген.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Жұмыс істеу (әзірлеушіге)
+```bash
+pnpm install
+pnpm dev      # әзірлеу сервері
+pnpm build    # dist/ құрастыру
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Қайта жариялау (GitHub Pages)
+`dist/` құрастырылып, `gh-pages` б тармағына жатқызылады:
+```bash
+pnpm build && rm -rf /tmp/gh-pages && cp -r dist /tmp/gh-pages
+cd /tmp/gh-pages && git init -b gh-pages && git add -A && git commit -m update
+git push -f <репозиторий> gh-pages
+```
+(Тарма: gh-pages → / түбірі; Pages Settings → Deploy from a branch.)
+
+## Дерек ескертуі
+Көптеген шайқас орындары мен даталары ғылымда талас — атлас оны жасырмайды:
+жерлер жуық нүкте, маршруттар шартты сызба ретінде берілген. Нақты координаттар
+ойлап табылмаған.
