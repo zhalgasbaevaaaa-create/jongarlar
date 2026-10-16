@@ -10,8 +10,8 @@
   --gold-dim: #8a743f;
   --sand: #e7dcc3;
   --muted: #93a5af;
-  --kk: #e7b83f;
-  --dj: #d95c47;
+  --kk: #ffd23e;
+  --dj: #c81e3c;
   --civ: #6fd3c0;
   --ru: #8fb4dd;
   --panel: rgba(10, 17, 22, 0.88);
@@ -285,7 +285,7 @@ body {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.65), inset 0 0 8px rgba(0, 0, 0, 0.55);
 }
 .mk--kk .mk-dot { border-color: var(--kk); color: #f3dd9a; }
-.mk--dj .mk-dot { border-color: var(--dj); color: #f0a491; }
+.mk--dj .mk-dot { border-color: var(--dj); color: #ff97a8; }
 .mk--civ .mk-dot { border-color: var(--civ); color: #bfeee3; }
 .mk--ru .mk-dot { border-color: var(--ru); color: #c6dcf2; }
 .mk--battle .mk-dot, .mk--fallen .mk-dot, .mk--curultai .mk-dot { width: 31px; height: 31px; border-width: 2px; }

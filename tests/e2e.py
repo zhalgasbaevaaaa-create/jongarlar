@@ -63,7 +63,7 @@ with sync_playwright() as pw:
     ok("per-event route sets unique (no shared generic route)", len(set(ids_sets)) == 10 and all(ids_sets),
        f"unique={len(set(ids_sets))}/10")
     allids = [x for j in ids_sets for x in j.split("+") if x]
-    ok("no route id reused across events", len(allids) == 51 and len(set(allids)) == 51, f"{len(allids)} ids, {len(set(allids))} unique")
+    ok("no route id reused across events", len(allids) == 52 and len(set(allids)) == 52, f"{len(allids)} ids, {len(set(allids))} unique")
 
     # ── B. Камера smooth ауысуы: нақты өлшеу ──
     def bounds():

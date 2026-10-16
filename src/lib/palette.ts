@@ -16,8 +16,8 @@ export const C = {
   water: "#0c1c27",
   river: "#35596b",
   ridge: "#6d5a38",
-  kk: "#e7b83f",
-  dj: "#d95c47",
+  kk: "#ffd23e",
+  dj: "#c81e3c",
   civ: "#6fd3c0",
   ru: "#8fb4dd",
 } as const;

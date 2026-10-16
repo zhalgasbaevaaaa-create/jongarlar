@@ -33,7 +33,7 @@ export const PLACES: Record<string, Place> = {
   orenburg: { id: "orenburg", kk: "Орынбор (негізі 1743)", kind: "fort", side: "ru", loc: [55.098, 51.767], certainty: "confirmed", note: "1735 ж. Ор бекінісінен басталған қала құрылысы; 1743 ж. Орынбор деп аталды." },
   or_fort: { id: "or_fort", kk: "Ор бекінісі", kind: "fort", side: "ru", loc: [58.474, 51.231], certainty: "approximate", spanKm: 15, note: "Ор/Оренбург (1735) — қазіргі Орск төңірегі." },
   embi: { id: "embi", kk: "Ембі", kind: "city", loc: [58.144, 48.822], certainty: "approximate", spanKm: 30, note: "XIX ғ. қаласының орны — XVIII ғ. үшін тек аймақ белгісі." },
-  orbulak: { id: "orbulak", kk: "Орбұлақ (орны талас)", kind: "battle", loc: [57.6, 49.5], certainty: "debated", spanKm: 130, note: "1643 ж. шайқас орны — Ембі (Уил)/Мұғалжар аймағы деп жүргізіледі; нақты нүкте ғылыми әдебиетте бір тоқтамда емес." },
+  orbulak: { id: "orbulak", kk: "Орбұлақ (Іле бойы, Жаркент маңы)", kind: "battle", loc: [79.98, 44.19], certainty: "approximate", spanKm: 80, note: "1643 ж. шайқас Жетісу нұсқасы бойынша қазіргі Жаркент маңындағы Іле аңғарынан (Орбұлақ шатқалы) ізделеді; датасы (1641/1643) мен нақты нүктесі ғылымда талас." },
   orbusy: { id: "orbusy", kk: "Орбасы өзені бойы (орны талас)", kind: "battle", loc: [56.6, 50.85], certainty: "debated", spanKm: 120, note: "1652/1653 жж. қақтығыс — Ор/Жайық алабы аймағы деп баяндалады; орны мен жылы талқылы." },
 
   // ── Орталық Қазақстан, Сарыарқа ──
