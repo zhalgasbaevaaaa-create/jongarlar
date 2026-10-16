@@ -2,7 +2,7 @@
 import json, re, sys
 from playwright.sync_api import sync_playwright
 
-URL = "http://127.0.0.1:4173/"
+URL = __import__("os").environ.get("ATLAS_URL", "http://127.0.0.1:4173/")
 RESULTS = []
 def ok(name, cond, extra=""):
     RESULTS.append((name, bool(cond), extra))

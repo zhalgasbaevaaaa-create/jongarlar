@@ -19,7 +19,7 @@ export const SOURCES: Record<string, SourceRec> = {
     id: "ehistory_kz",
     kind: "article",
     title: "«Қазақ-жоңғар қатынастары XVIII ғ. басында» (e-history.kz)",
-    cite: "e-history.kz сайтындағы оқу материалы: Жаңғар ханның 1635/1643/1652 жж. шайқастары; Тәуке (1680–1715/18) кезеңі.",
+    cite: "e-history.kz сайтындағы оқу материалы: Салқам Жәңгір ханның 1635/1643/1652 жж. шайқастары; Тәуке (1680–1715/18) кезеңі.",
     url: "https://e-history.kz/media/scorm/377/text/text.htm",
   },
   kkwiki_joq_1698: {
