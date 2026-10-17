@@ -9,6 +9,12 @@
       content="Қазақ-жоңғар соғыстары (XVII–XVIII ғғ.) — интерактивті тарихи атлас: карта, уақыт жолағы, жорық маршруттарының анимациясы, тұлғалар және дереккөздер."
     />
     <title>Қазақ–жоңғар соғыстары — интерактивті тарихи атлас</title>
+    <!-- алғашқы жүктеуді жылдамдату: дерек файлдарын JS-тен бұрын ала бастау -->
+    <link rel="preload" href="./data/kz-provinces.geojson" as="fetch" />
+    <link rel="preload" href="./data/kz-outline.geojson" as="fetch" />
+    <link rel="preload" href="./data/kz-borders.geojson" as="fetch" />
+    <link rel="preload" href="./data/lakes.geojson" as="fetch" />
+    <link rel="preload" href="./data/countries.geojson" as="fetch" />
   </head>
   <body>
     <div id="root"></div>

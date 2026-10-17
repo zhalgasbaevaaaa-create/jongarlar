@@ -23,7 +23,7 @@ export const PLACES: Record<string, Place> = {
   ili_yili: { id: "ili_yili", kk: "Іле (Құлжа/Йинин)", kind: "city", loc: [81.275, 43.905], certainty: "confirmed", note: "Іле аңғарының орталығы — қазіргі Йинин (Гульжа); жоңғар аумағындағы қала." },
   urumqi: { id: "urumqi", kk: "Үрімші", kind: "city", loc: [87.614, 43.824], certainty: "confirmed", note: "Цин әкімшілік орталығы (1760-жж. кейін) — тарихи шекара белгісі ретінде." },
   almaty: { id: "almaty", kk: "Алматы төңірегі (Верный бекінісі 1854)", kind: "city", loc: [76.946, 43.236], certainty: "approximate", spanKm: 12, note: "XVIII ғ. Верный бекінісі жоқ боған; аймақ белгісі ретінде ғана." },
-  zaysan: { id: "zaysan", kk: "Зайсан көлі", kind: "camp", loc: [84.045, 47.988], certainty: "approximate", spanKm: 30, note: "Зайсан ойысы — жоңғар/цин жорық бағыттарының белгілі бағдары." },
+  zaysan: { id: "zaysan", kk: "Зайсан көлі (батыс жағасы)", kind: "camp", loc: [82.85, 47.72], certainty: "approximate", spanKm: 40, note: "Зайсан ойысы — жоңғар/цин жорық бағыттарының белгілі бағдары." },
   semey: { id: "semey", kk: "Семей бекінісі (1718)", alt: "Semipalatnyy", kind: "fort", side: "ru", loc: [80.25, 50.407], certainty: "confirmed", note: "Ресейдің Ертіс сызығындағы бекінісі, 1718 ж. салынған." },
   oskemen: { id: "oskemen", kk: "Өскемен бекінісі (1720)", alt: "Ust-Kamenogorsk", kind: "fort", side: "ru", loc: [82.627, 49.948], certainty: "confirmed", note: "1720 ж. бекініс; жоңғар шапқыншылығы кезеңінің куәсі." },
   ayagoz: { id: "ayagoz", kk: "Аягөз", kind: "camp", loc: [80.437, 47.965], certainty: "approximate", spanKm: 40, note: "Аягөз өзені бойы — Аңырақайдан кейінгі жоңғарлардың шегіну бағытындағы маңдайша белгі (болжам)." },
@@ -62,7 +62,7 @@ export const PLACES: Record<string, Place> = {
   samarkand: { id: "samarkand", kk: "Самарқан", kind: "city", loc: [66.976, 39.655], certainty: "confirmed", note: "Ақтабан кезеңінде қазақ қоныстарының бір барыс бағыты." },
   khujand: { id: "khujand", kk: "Қожа (Ходжент)", kind: "city", loc: [69.619, 40.284], certainty: "confirmed", note: "Ташкент қазақтарының 1723–27 жж. баспаналарының бірі." },
   turgai_gate: { id: "turgai_gate", kk: "Торғай қақпасы", kind: "gate", loc: [64.9, 51.5], certainty: "approximate", spanKm: 50, note: "Кіші жүз бен Ресей шекара аймағы бағытындағы тарихи дәліз." },
-  volga_start: { id: "volga_start", kk: "Еділ бойындағы торғайт қонстары", kind: "camp", loc: [47.2, 46.9], certainty: "approximate", spanKm: 90, note: "1771 ж. Торғайт (Қалмақ) хандығының Еділ мен Жайық арасындағы жайылыстары — қоныстың басталу аймағы." },
+  volga_start: { id: "volga_start", kk: "Еділ бойындағы торғауыт қоныстары", kind: "camp", loc: [47.2, 46.9], certainty: "approximate", spanKm: 90, note: "1771 ж. Торғауыт (Қалмақ) хандығының Еділ мен Жайық арасындағы жайылыстары — қоныстың басталу аймағы." },
 };
 
 export function place(id: string): Place {
