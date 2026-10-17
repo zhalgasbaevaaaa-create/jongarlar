@@ -84,6 +84,53 @@ export default function MapCanvas(props: MapCanvasProps) {
   const scheduleRef = useRef(schedule);
   scheduleRef.current = schedule;
 
+  /* Жапсырмалардың қабаттасуын/экран шетіне қиылуын болдырмау:
+     әр маркер үшін label орнын (асты/үсті/екінші қатар/оңға/солға) таңдаймыз. */
+  const layoutLabels = () => {
+    const W = hostRef.current?.clientWidth ?? window.innerWidth;
+    const items: { el: HTMLElement; lab: HTMLElement; x: number; y: number; w: number; h: number }[] = [];
+    for (const mb of markersRef.current) {
+      if (!mb.el.classList.contains("is-in") || mb.el.classList.contains("mk-hidden")) continue;
+      const dot = mb.el.querySelector(".mk-dot") as HTMLElement | null;
+      const lab = mb.el.querySelector(".mk-label") as HTMLElement | null;
+      if (!dot || !lab) continue;
+      const r = dot.getBoundingClientRect();
+      items.push({ el: mb.el, lab, x: r.x + r.width / 2, y: r.y + r.height / 2,
+                   w: lab.offsetWidth || Math.min(210, (lab.textContent || "").length * 6.2 + 14), h: 20 });
+    }
+    items.sort((a, b) => a.y - b.y || a.x - b.x);
+    const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
+    // сол жақтағы оқиға панелінің астына түспеуі үшін шек (десктопта ~400px)
+    const LEFT = W > 1024 ? 402 : 6;
+    const fits = (b: { x0: number; y0: number; x1: number; y1: number }) =>
+      b.x0 > LEFT && b.x1 < W - 6 && !placed.some((p) => b.x0 < p.x1 && b.x1 > p.x0 && b.y0 < p.y1 && b.y1 > p.y0);
+    const box = (it: { x: number; y: number; w: number; h: number }, pos: string) => {
+      const w = it.w, h = it.h, x = it.x, y = it.y;
+      switch (pos) {
+        case "up":    return { x0: x - w / 2, x1: x + w / 2, y0: y - 17 - h, y1: y - 17 };
+        case "down2": return { x0: x - w / 2, x1: x + w / 2, y0: y + 17 + 22, y1: y + 17 + 22 + h };
+        case "up2":   return { x0: x - w / 2, x1: x + w / 2, y0: y - 17 - h - 22, y1: y - 17 - 22 };
+        case "right": return { x0: x + 17, x1: x + 17 + w, y0: y - h / 2, y1: y + h / 2 };
+        case "left":  return { x0: x - 17 - w, x1: x - 17, y0: y - h / 2, y1: y + h / 2 };
+        default:      return { x0: x - w / 2, x1: x + w / 2, y0: y + 17, y1: y + 17 + h };
+      }
+    };
+    for (const it of items) {
+      const edge = it.x - it.w / 2 < LEFT + 6 ? ["right", "down", "up", "down2", "up2", "left"]
+                 : it.x > W - 130 ? ["left", "down", "up", "right", "down2", "up2"]
+                 : ["down", "up", "down2", "up2", "right", "left"];
+      it.el.classList.remove("mk--lab-up", "mk--lab-down2", "mk--lab-up2", "mk--lab-right", "mk--lab-left", "mk--lab-hide");
+      let ok = false;
+      for (const pos of edge) {
+        if (fits(box(it, pos))) {
+          if (pos !== "down") it.el.classList.add(`mk--lab-${pos}`);
+          placed.push(box(it, pos)); ok = true; break;
+        }
+      }
+      if (!ok) it.el.classList.add("mk--lab-hide");
+    }
+  };
+
   const paintFrame = () => {
     const map = mapRef.current;
     if (!map || !readyRef.current) return;
@@ -148,6 +195,7 @@ export default function MapCanvas(props: MapCanvasProps) {
       mb.el.classList.toggle("is-in", pp >= mb.appearP - 1e-6);
       mb.el.classList.toggle("is-hit", mb.hitP >= 0 && pp >= mb.hitP - 1e-6);
     }
+    layoutLabels();
   };
 
   /* ─────────── карта instance ─────────── */
@@ -166,6 +214,9 @@ export default function MapCanvas(props: MapCanvasProps) {
       hash: false,
     });
     map.touchZoomRotate.disableRotation();
+    const layoutRef = (window as unknown as { __atlasLayout?: () => void });
+    layoutRef.__atlasLayout = layoutLabels;
+    map.on("move", () => requestAnimationFrame(() => layoutRef.__atlasLayout?.()));
     map.addControl(new maplibregl.ScaleControl({ maxWidth: 110, unit: "metric" }), "bottom-left");
     (window as unknown as { __atlas?: unknown }).__atlas = map; // авто-тест/дебаг тұтқасы
 

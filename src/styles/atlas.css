@@ -275,10 +275,13 @@ body {
 .chip-progress { position: absolute; left: 0; bottom: 0; height: 2.5px; background: linear-gradient(90deg, #8a743f, #f0cf8a); }
 
 /* ─────────── Карта маркерлері ─────────── */
-.mk { position: relative; opacity: 0; transform: scale(0.5) translateY(4px); transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.2, 1.4, 0.4, 1); font-family: var(--sans); }
-.mk.is-in { opacity: 1; transform: none; }
+/* MapLibre маркер элeменті АБСОЛЮТТІ болуы шарт: әйтпесе маркерлер ағынға
+   түсіп, әрқайсысы алдыңғылардың биіктігіне төмен жылжиды (бұрынғы қате). */
+.mk { position: absolute; opacity: 0; transition: opacity 0.3s ease; font-family: var(--sans); }
+.mk.is-in { opacity: 1; }
 .mk.mk-hidden { display: none !important; }
-.mk-core { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.mk-core { display: grid; place-items: center; cursor: pointer; transform: scale(0.5); transition: transform 0.35s cubic-bezier(0.2, 1.4, 0.4, 1); }
+.mk.is-in .mk-core { transform: none; }
 .mk-dot {
   width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
   background: rgba(9, 14, 18, 0.92); border: 1.6px solid #9aa8b0; color: #cfd8dd;
@@ -294,7 +297,7 @@ body {
 .mk--c-approximate .mk-dot { border-style: double; border-width: 4px; }
 .mk--c-debated .mk-dot { border-style: dashed; }
 .mk-glow {
-  position: absolute; left: 50%; top: 15px; width: 74px; height: 74px; transform: translate(-50%, -50%);
+  position: absolute; left: 50%; top: 50%; width: 74px; height: 74px; transform: translate(-50%, -50%);
   border-radius: 50%; opacity: 0; pointer-events: none;
   background: radial-gradient(circle, color-mix(in srgb, currentColor 55%, transparent), transparent 65%);
   color: var(--dj);
@@ -308,14 +311,22 @@ body {
   100% { opacity: 0; transform: translate(-50%, -50%) scale(1.9); }
 }
 .mk-label {
-  margin-top: 5px; max-width: 210px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 5px;
+  max-width: 210px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   background: rgba(7, 11, 14, 0.82); border: 1px solid rgba(210, 167, 85, 0.22);
   border-radius: 6px; padding: 2px 7px; font-size: 10.6px; letter-spacing: 0.2px; color: #d9cdb0;
   backdrop-filter: blur(3px);
 }
 .mk-cert { color: #e0a04f; font-weight: 700; margin-left: 4px; }
-.mk-demo { position: static; opacity: 1; transform: none; display: inline-grid; }
-.mk-demo .mk-core { flex-direction: row; }
+/* label орнын автоматты таңдау кластары (layoutLabels) */
+.mk--lab-up .mk-label { top: auto; bottom: 100%; margin-top: 0; margin-bottom: 5px; }
+.mk--lab-down2 .mk-label { margin-top: 27px; }
+.mk--lab-up2 .mk-label { top: auto; bottom: 100%; margin-top: 0; margin-bottom: 27px; }
+.mk--lab-right .mk-label { left: calc(100% + 6px); top: 50%; transform: translateY(-50%); margin-top: 0; }
+.mk--lab-left .mk-label { right: calc(100% + 6px); left: auto; top: 50%; transform: translateY(-50%); margin-top: 0; }
+.mk--lab-hide .mk-label { opacity: 0; pointer-events: none; }
+.mk-demo { position: static; opacity: 1; display: inline-grid; }
+.mk-demo .mk-core { transform: none; }
 .mk-demo .mk-label, .mk-demo .mk-glow { display: none; }
 
 .head svg { filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.8)); transition: transform 0.05s linear; }

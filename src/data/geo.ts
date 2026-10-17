@@ -12,24 +12,24 @@ export const PLACES: Record<string, Place> = {
   sayram: { id: "sayram", kk: "Сайрам", alt: "Isfidzhab", kind: "city", loc: [69.76, 42.3], certainty: "confirmed", note: "Сайрам (Исфижаб) — қазіргі Шаңытөбе/Сарықамыс төңірегі; ортақ тарихи аймақ координаты." },
   tashkent: { id: "tashkent", kk: "Ташкент", kind: "city", loc: [69.279, 41.312], certainty: "confirmed", note: "XVIII ғ. Ескі Ташкент (қазіргі қаланың оңтүстік-батыс бөлігі); координат шамамен қаланың орталығы." },
   taraz: { id: "taraz", kk: "Тараз (Аулие-Ата)", kind: "city", loc: [71.352, 42.878], certainty: "confirmed", note: "Тараз — XVIII ғ. «Аулие-Ата» деген атаумен де белгілі." },
-  sauran: { id: "sauran", kk: "Сауран", kind: "city", loc: [68.8, 42.413], certainty: "approximate", spanKm: 15, note: "Сауран қаланың орны — қазіргі Арыс қаласы маңы (үсті-асты 10–20 км)." },
-  otyrar: { id: "otrar", kk: "Отырар (Сығанақ)", kind: "city", loc: [68.303, 42.852], certainty: "approximate", spanKm: 12, note: "Отырар төңірегі — қазіргі Отырар ақылы маңындағы ежелгі қалашық; Сығанақ аталысы кей деректе осы аймақпен байланыстырылады." },
+  sauran: { id: "sauran", kk: "Сауран", kind: "city", loc: [67.95, 43.39], certainty: "approximate", spanKm: 15, note: "Сауран қалашығы — қазіргі Сауран ауылының (67.92° ш.б., 43.44° с.е.) оңтүстігінде, Түркістанның солтүстік-батысында." },
+  otyrar: { id: "otrar", kk: "Отырар", kind: "city", loc: [68.303, 42.852], certainty: "approximate", spanKm: 12, note: "Отырар қалашығы — қазіргі Отырар ауылы маңындағы ежелгі қала орны (Сығанақ — басқа қала, Сыр бойында солтүстік-батыста)." },
   sozak: { id: "sozak", kk: "Созақ", kind: "city", loc: [68.614, 44.695], certainty: "approximate", spanKm: 30, note: "Созақ — қазіргі Созақ ауданының орталығы маңы; XVIII ғ. қонысының нақты орны басқаша болуы мүмкін." },
   shymkent: { id: "shymkent", kk: "Шым (Шымқорған)", alt: "Shymqorǵan", kind: "fort", loc: [69.588, 42.315], certainty: "approximate", spanKm: 10, note: "Шым бекінісі — қазіргі Шымкент орталығы маңында; Есім/Тәуке кезеңдеріндегі қалашық нақтысыз." },
   kyzylzhar: { id: "kyzylzhar", kk: "Қызылжар (Жент)", kind: "city", loc: [63.55, 44.72], certainty: "approximate", spanKm: 40, note: "Жент/Қызылжар — Сырдың төменгі ағысындағы ортағасырлық қала; орны бірнеше нұсқада талқыланады." },
-  shardara: { id: "shardara", kk: "Шардара", kind: "fort", loc: [67.324, 41.587], certainty: "approximate", spanKm: 25, note: "Шардара — Түркістан облысы аймағы; бекініс қалдығының координаты аудан орталығы бойынша." },
+  shardara: { id: "shardara", kk: "Шардара", kind: "fort", loc: [67.98, 41.27], certainty: "approximate", spanKm: 25, note: "Шардара — Сырдария бойындағы аудан орталығы; XVIII ғ. бекініс орны аудан орталығы маңында деп белгіленген." },
 
   // ── Жетісу, Іле, Ертіс ──
   ili_yili: { id: "ili_yili", kk: "Іле (Құлжа/Йинин)", kind: "city", loc: [81.275, 43.905], certainty: "confirmed", note: "Іле аңғарының орталығы — қазіргі Йинин (Гульжа); жоңғар аумағындағы қала." },
   urumqi: { id: "urumqi", kk: "Үрімші", kind: "city", loc: [87.614, 43.824], certainty: "confirmed", note: "Цин әкімшілік орталығы (1760-жж. кейін) — тарихи шекара белгісі ретінде." },
   almaty: { id: "almaty", kk: "Алматы төңірегі (Верный бекінісі 1854)", kind: "city", loc: [76.946, 43.236], certainty: "approximate", spanKm: 12, note: "XVIII ғ. Верный бекінісі жоқ боған; аймақ белгісі ретінде ғана." },
-  zaysan: { id: "zaysan", kk: "Зайсан көлі (батыс жағасы)", kind: "camp", loc: [82.85, 47.72], certainty: "approximate", spanKm: 40, note: "Зайсан ойысы — жоңғар/цин жорық бағыттарының белгілі бағдары." },
+  zaysan: { id: "zaysan", kk: "Зайсан көлі (батыс жағасы)", kind: "camp", loc: [82.93, 48.24], certainty: "approximate", spanKm: 40, note: "Зайсан көлінің ең батыс нүктесі ≈82.99° ш.б., 48.24° с.е. (OSM көл шекарасы бойынша); маркер сол жағалаудың батысында." },
   semey: { id: "semey", kk: "Семей бекінісі (1718)", alt: "Semipalatnyy", kind: "fort", side: "ru", loc: [80.25, 50.407], certainty: "confirmed", note: "Ресейдің Ертіс сызығындағы бекінісі, 1718 ж. салынған." },
   oskemen: { id: "oskemen", kk: "Өскемен бекінісі (1720)", alt: "Ust-Kamenogorsk", kind: "fort", side: "ru", loc: [82.627, 49.948], certainty: "confirmed", note: "1720 ж. бекініс; жоңғар шапқыншылығы кезеңінің куәсі." },
   ayagoz: { id: "ayagoz", kk: "Аягөз", kind: "camp", loc: [80.437, 47.965], certainty: "approximate", spanKm: 40, note: "Аягөз өзені бойы — Аңырақайдан кейінгі жоңғарлардың шегіну бағытындағы маңдайша белгі (болжам)." },
 
   // ── Батыс, Орбұлақ/Орбасы аймағы ──
-  yaitsk: { id: "yaitsk", kk: "Яиқ қалашығы (қаз. Атырау)", kind: "fort", side: "ru", loc: [51.92, 47.097], certainty: "approximate", spanKm: 10, note: "Яиқ казак қалашығы (XVII–XVIII ғ.) — қазіргі Атырау орнында." },
+  yaitsk: { id: "yaitsk", kk: "Яицкий қалашығы (қаз. Орал)", kind: "fort", side: "ru", loc: [51.37, 51.2], certainty: "approximate", spanKm: 10, note: "Яицкий городок (1584/1613) — Жайық бойындағы казак қалашығы, қазіргі Орал (Уральск). Атырау (Гурьев, 1640) — Жайықтың сағасындағы бөлек қала." },
   orenburg: { id: "orenburg", kk: "Орынбор (негізі 1743)", kind: "fort", side: "ru", loc: [55.098, 51.767], certainty: "confirmed", note: "1735 ж. Ор бекінісінен басталған қала құрылысы; 1743 ж. Орынбор деп аталды." },
   or_fort: { id: "or_fort", kk: "Ор бекінісі", kind: "fort", side: "ru", loc: [58.474, 51.231], certainty: "approximate", spanKm: 15, note: "Ор/Оренбург (1735) — қазіргі Орск төңірегі." },
   embi: { id: "embi", kk: "Ембі", kind: "city", loc: [58.144, 48.822], certainty: "approximate", spanKm: 30, note: "XIX ғ. қаласының орны — XVIII ғ. үшін тек аймақ белгісі." },
@@ -37,19 +37,19 @@ export const PLACES: Record<string, Place> = {
   orbusy: { id: "orbusy", kk: "Орбасы өзені бойы (орны талас)", kind: "battle", loc: [56.6, 50.85], certainty: "debated", spanKm: 120, note: "1652/1653 жж. қақтығыс — Ор/Жайық алабы аймағы деп баяндалады; орны мен жылы талқылы." },
 
   // ── Орталық Қазақстан, Сарыарқа ──
-  ulytau: { id: "ulytau", kk: "Ұлытау (тау)", kind: "memorial", loc: [66.3, 47.75], certainty: "approximate", spanKm: 25, note: "Ұлытау тауларының оңтүстік етегі; қасиетті мекен ретінде де белгілі." },
-  bulandy: { id: "bulandy", kk: "Бұланты өзені бойы (Қарасиыр)", kind: "battle", loc: [66.2, 47.72], certainty: "approximate", spanKm: 40, note: "Бұланты шайқасының орны — Ұлытау өңірі, Бұланты мен Білеуті өзендері аралығындағы Қарасиыр жазығы (Ұлытау қорық-музейі экспедицияларының тұжырымдары, 1998–2015)." },
-  kalmaq_qyrylghan: { id: "kalmaq_qyrylghan", kk: "«Қалмақ қырылған» төбесі", kind: "memorial", loc: [66.42, 47.68], certainty: "approximate", spanKm: 35, note: "Бұлантыдағы жеңістен кейінгі халық атауы — сол аймақтағы төбе." },
-  buzuluk: { id: "buzuluk", kk: "Бұзылұқ (Бетпақдала)", kind: "battle", loc: [71.0, 48.3], certainty: "debated", spanKm: 90, note: "Бұзылұқ шайқасы — «Бетпақдаладағы Бұзылұқ бұлағы/Санта маңы» деген сипаттама негізінде; нақты орны бірнеше нұсқада." },
+  ulytau: { id: "ulytau", kk: "Ұлытау (тау)", kind: "memorial", loc: [66.55, 48.3], certainty: "approximate", spanKm: 25, note: "Ұлытау тауларының оңтүстік етегі (Ұлытау ауылы — 48.65° с.е.); қасиетті мекен ретінде де белгілі." },
+  bulandy: { id: "bulandy", kk: "Бұланты өзені бойы (Қарасиыр)", kind: "battle", loc: [66.4, 48.2], certainty: "approximate", spanKm: 40, note: "Бұланты шайқасының орны — Ұлытау өңірі, Бұланты мен Білеуті өзендері аралығындағы Қарасиыр жазығы (Ұлытау қорық-музейі экспедицияларының тұжырымдары, 1998–2015)." },
+  kalmaq_qyrylghan: { id: "kalmaq_qyrylghan", kk: "«Қалмақ қырылған» төбесі", kind: "memorial", loc: [66.52, 48.13], certainty: "approximate", spanKm: 35, note: "Бұлантыдағы жеңістен кейінгі халық атауы — сол аймақтағы төбе." },
+  buzuluk: { id: "buzuluk", kk: "Бұзылұқ (Бетпақдала)", kind: "battle", loc: [70.55, 46.35], certainty: "debated", spanKm: 90, note: "Бұзылұқ шайқасы — «Бетпақдаладағы Бұзылұқ бұлағы/Санта маңы» деген сипаттама негізінде; нақты орны бірнеше нұсқада." },
   qarqaraly: { id: "qarqaraly", kk: "Қарқаралы өңірі", kind: "camp", loc: [75.47, 49.412], certainty: "approximate", spanKm: 30, note: "Орта жүздің далалық аймағы; қазіргі Қарқаралы (1824 ж. негізгі) төңірегі бойынша белгіленген." },
   sarysu: { id: "sarysu", kk: "Сарысу аймағы", kind: "camp", loc: [69.4, 48.9], certainty: "approximate", spanKm: 60, note: "Сарысу/Едігей бойы — көшпелі қыстаулар аймағы." },
   aqmola_malm: { id: "aqmola_malm", kk: "Малдымода (Есіл бойы)", kind: "battle", loc: [71.43, 51.13], certainty: "debated", spanKm: 110, note: "«Малдымода/Малтымұрат» шайқасы Есіл бойындағы Ақмола төңірегі деп жүргізіледі (қазіргі Астана маңы); жылы (1741/1743) де, орны да талас." },
 
   // ── Оңтүстік-Шығыс, құрылтай орындары ──
-  karakum: { id: "karakum", kk: "Қарақұм (Құлан бойы)", kind: "curultai", loc: [72.35, 42.55], certainty: "debated", spanKm: 80, note: "1710 ж. құрылтай — «Таластың Құлан жағасындағы Қарақұм» деген сипаттама бойынша белгіленді; орны талқылы." },
+  karakum: { id: "karakum", kk: "Қарақұм (Құлан бойы)", kind: "curultai", loc: [72.2, 42.75], certainty: "debated", spanKm: 80, note: "1710 ж. құрылтай — «Таластың Құлан жағасындағы Қарақұм» деген сипаттама бойынша белгіленді; орны талқылы." },
   ordabasy: { id: "ordabasy", kk: "Ордабасы (Боралдай бойы)", kind: "curultai", loc: [69.45, 42.28], certainty: "approximate", spanKm: 20, note: "1726 ж. Үш жүз құрылтайы — Бадам өзені бойындағы Ордабасы төбесі (Шымкенттің оңтүстік-батысы); маркер шамамен қойылды." },
-  anyraqay: { id: "anyraqay", kk: "Аңырақай ( Далатау/Хантау аймағы)", kind: "battle", loc: [75.45, 45.55], certainty: "debated", spanKm: 100, note: "Аңырақай шайқасы — Балқаш бен Шу арасындағы кең дала (Далатау, Хантау, Ақсүйек сайы); «Ітішпес-Алакөл» деген халық атауы бар. Нақты майдан сызығы туралы бір ғылыми келісім жоқ." },
-  khantau: { id: "khantau", kk: "Хантау (жиын орны)", kind: "camp", loc: [76.05, 45.05], certainty: "approximate", spanKm: 35, note: "«Аңырақай шайқасы» мақаласында: шайқас алдындағы бас қосу Хантау/Сұңқар тауы маңында." },
+  anyraqay: { id: "anyraqay", kk: "Аңырақай (Далатау/Хантау аймағы)", kind: "battle", loc: [75.45, 45.55], certainty: "debated", spanKm: 150, note: "Аңырақай шайқасы — Балқаш бен Шу арасындағы кең дала (Далатау, Хантау, Ақсүйек сайы); «Ітішпес-Алакөл» деген халық атауы бар. Нақты майдан сызығы туралы бір ғылыми келісім жоқ." },
+  khantau: { id: "khantau", kk: "Хантау тауы (жиын орны)", kind: "camp", loc: [73.85, 44.25], certainty: "approximate", spanKm: 35, note: "«Аңырақай шайқасы» мақаласында: шайқас алдындағы бас қосу Хантау/Сұңқар тауы маңында." },
   balkhash_w: { id: "balkhash_w", kk: "Балқаш көлінің оңт. жағасы", kind: "camp", loc: [75.3, 45.95], certainty: "approximate", spanKm: 50, note: "Балқаштың оңтүстік-батыс жағалауы — жасақ жиналған бағыттардың бірі." },
 
   // ── Жоңғар тарапы ──
@@ -95,7 +95,7 @@ export const RIVERS: { id: string; name: string; pts: [number, number][] }[] = [
 
 export const RIDGES: { id: string; name: string; pts: [number, number][] }[] = [
   { id: "karatau", name: "Қаратау", pts: [[68.3, 43.35], [69.5, 43.05], [70.8, 42.8], [72.2, 42.55], [73.8, 42.5], [75.3, 42.6]] },
-  { id: "ulytau_r", name: "Ұлытау", pts: [[65.2, 47.85], [66.1, 47.7], [67.0, 47.6], [67.9, 47.45], [68.6, 47.25]] },
+  { id: "ulytau_r", name: "Ұлытау", pts: [[65.8, 48.25], [66.5, 48.45], [67.3, 48.4], [67.9, 48.2]] },
   { id: "mugodzhar", name: "Мұғалжар", pts: [[57.6, 49.0], [59.0, 48.75], [60.6, 48.65], [62.2, 48.5]] },
   { id: "zilijatau", name: "Жетісу (Заилий) Алатауы", pts: [[74.5, 43.05], [75.6, 43.05], [76.8, 43.1], [77.9, 43.15], [79.0, 43.25], [80.1, 43.3]] },
   { id: "kungey", name: "Күнгей Алатауы", pts: [[78.0, 42.85], [79.6, 42.9], [81.2, 42.85], [82.6, 42.9]] },
@@ -121,7 +121,7 @@ export const LABELS: { kk: string; loc: [number, number]; kind: MapLabelKind; si
   { kk: "ҚОҢҒЫРДАН", loc: [71.3, 40.7], kind: "state", size: "s", spaced: true },
   { kk: "САРЫАРҚА", loc: [71.2, 48.6], kind: "region", size: "l", spaced: true },
   { kk: "ҰЛЫ ДАЛА", loc: [63.3, 48.6], kind: "region", size: "s", spaced: true },
-  { kk: "БЕТПАҚДАЛА", loc: [72.6, 48.2], kind: "desert", size: "s", spaced: true },
+  { kk: "БЕТПАҚДАЛА", loc: [71.4, 45.95], kind: "desert", size: "s", spaced: true },
   { kk: "ҚЫЗЫЛҚҰМ", loc: [62.9, 44.6], kind: "desert", size: "s", spaced: true },
   { kk: "МҰЙЫНҚҰМ", loc: [57.3, 44.9], kind: "desert", size: "s", spaced: true },
   { kk: "ҚАРАҚҰМ", loc: [57.7, 41.6], kind: "desert", size: "s", spaced: true },
@@ -132,10 +132,10 @@ export const LABELS: { kk: string; loc: [number, number]; kind: MapLabelKind; si
   { kk: "БАЛҚАШ КӨЛІ", loc: [75.6, 46.55], kind: "water", size: "s" },
   { kk: "АЛАКӨЛ", loc: [81.75, 46.12], kind: "water", size: "s" },
   { kk: "ІСЫҚКӨЛ", loc: [77.3, 42.35], kind: "water", size: "s" },
-  { kk: "ЗАЙСАН", loc: [83.6, 47.85], kind: "water", size: "s" },
+  { kk: "ЗАЙСАН", loc: [84.1, 47.95], kind: "water", size: "s" },
   { kk: "ТЕНГІЗ КӨЛІ", loc: [62.6, 50.45], kind: "water", size: "s" },
   { kk: "АРАЛ ТЕҢІЗІ", loc: [59.9, 45.3], kind: "water", size: "s" },
-  { kk: "ҰЛЫТАУ ТАУЛАРЫ", loc: [66.6, 47.35], kind: "mountain", size: "s" },
+  { kk: "ҰЛЫТАУ ТАУЛАРЫ", loc: [66.7, 48.02], kind: "mountain", size: "s" },
   { kk: "ҚАРАТАУ", loc: [70.4, 42.45], kind: "mountain", size: "s" },
-  { kk: "МҰҒАЛЖАР", loc: [59.4, 48.2], kind: "mountain", size: "s" },
+  { kk: "МҰҒАЛЖАР", loc: [59.1, 49.55], kind: "mountain", size: "s" },
 ];
