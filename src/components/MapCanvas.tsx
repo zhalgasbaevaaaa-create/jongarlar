@@ -35,10 +35,9 @@ export interface MapCanvasProps {
   apiRef: RefObject<MapCanvasHandle | null>;
 }
 
-/* Ашық OpenStreetMap тайлдары — кілтсіз, тегін (қолдану саясаты: жаппай жүктеме емес,
- * атрибуция міндетті). CARTO dark бұрын кілтсіз еді — енді watermark қояды, сондықтан бас тартылды. */
-const TILE_URLS = ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"];
-const TILE_ATTR = 'Карта деректері © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> үлескерлері (ODbL)';
+/* Карта негізі — пайдаланушы ұсынған KZ ADM1 (облыстар) қабаты + Natural Earth жер-суы.
+ * Сыртқы тайл-серверлер мүлдем қолданылмайды: карта толық офлайн жұмыс істейді. */
+const PROV_LAYERS = ["kz-prov-fill", "kz-prov-borders", "kz-outline", "kz-labels"];
 
 interface MarkerBundle {
   marker: maplibregl.Marker;
@@ -74,7 +73,6 @@ export default function MapCanvas(props: MapCanvasProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
   const readyRef = useRef(false);
-  const tilesState = useRef({ added: false, errs: 0, loaded: false });
   const markersRef = useRef<MarkerBundle[]>([]);
   const routesRef = useRef<RouteRuntime[]>([]);
   const pRef = useRef(p);
@@ -206,20 +204,6 @@ export default function MapCanvas(props: MapCanvasProps) {
       map.resize();
     });
 
-    map.on("error", (e: unknown) => {
-      const anyE = e as unknown as { sourceId?: string; error?: Error };
-      if (anyE.sourceId === "tiles" || /openstreetmap|tile\./i.test(anyE.error?.message || "")) {
-        tilesState.current.errs++;
-        if (!tilesState.current.loaded && tilesState.current.errs >= 4) statusCbRef.current("blocked");
-      }
-    });
-    map.on("data", (e: unknown) => {
-      const ev = e as unknown as { dataType?: string; sourceId?: string; isSourceLoaded?: boolean };
-      if (ev.sourceId === "tiles" && ev.dataType === "source" && ev.isSourceLoaded) {
-        tilesState.current.loaded = true;
-        statusCbRef.current("online");
-      }
-    });
 
     return () => {
       ro?.disconnect();
@@ -230,53 +214,15 @@ export default function MapCanvas(props: MapCanvasProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* ─────────── тайл қабаты ─────────── */
-  const prevTiles = useRef<boolean | null>(null);
+  /* ─────────── ADM1 қабат ауысуы ─────────── */
   useEffect(() => {
-    if (prevTiles.current === false && showTiles) {
-      // пайдаланушы қайта қосты — қателер есебін нөлдеп, екінші мүмкіндік береміз
-      tilesState.current.errs = 0;
-    }
-    prevTiles.current = showTiles;
     const apply = () => {
       const map = mapRef.current;
       if (!map || !readyRef.current) return;
-      const has = !!map.getSource("tiles");
-      const soften = (on: boolean) => {
-        try {
-          map.setPaintProperty("land-fill", "fill-opacity", on ? 0.28 : 0.98);
-          map.setPaintProperty("land-hatch", "fill-opacity", on ? 0.08 : 0.35);
-          map.setPaintProperty("water-fill", "fill-opacity", on ? 0.25 : 0.9);
-          map.setPaintProperty("country-borders", "line-opacity", on ? 0.22 : 0.55);
-        } catch { /* ignore */ }
-      };
-      if (showTiles && !has && tilesState.current.errs < 4) {
-        map.addSource("tiles", { type: "raster", tiles: TILE_URLS, tileSize: 256, attribution: TILE_ATTR, maxzoom: 19 });
-        map.addLayer(
-          {
-            id: "tiles-layer",
-            type: "raster",
-            source: "tiles",
-            paint: {
-              "raster-opacity": 0.62,
-              // ашық OSM тайлдарын қараңғы атлас стиліне бейімдеу
-              "raster-saturation": -0.55,
-              "raster-contrast": 0.12,
-              "raster-brightness-min": 0.22,
-              "raster-brightness-max": 0.58,
-              "raster-resampling": "linear",
-            },
-          } as never,
-          "land-fill",
-        );
-        statusCbRef.current("loading");
-        soften(true);
-      } else if (!showTiles && has) {
-        if (map.getLayer("tiles-layer")) map.removeLayer("tiles-layer");
-        map.removeSource("tiles");
-        statusCbRef.current("off");
-        soften(false);
+      for (const id of PROV_LAYERS) {
+        try { map.setLayoutProperty(id, "visibility", showTiles ? "visible" : "none"); } catch { /* ignore */ }
       }
+      statusCbRef.current(showTiles ? "online" : "off");
     };
     apply();
     const map = mapRef.current;

@@ -16,6 +16,10 @@ export function buildAtlasStyle(): StyleSpecification {
       countries: { type: "geojson", data: `${BASE}data/countries.geojson` },
       lakes: { type: "geojson", data: `${BASE}data/lakes.geojson` },
       geo: { type: "geojson", data: emptyFC() },
+      "kz-prov": { type: "geojson", data: `${BASE}data/kz-provinces.geojson`, attribution: "Облыстар: KZ ADM1 қабаты (пайдаланушы файлы) · Жер-су: Natural Earth" },
+      "kz-outline": { type: "geojson", data: `${BASE}data/kz-outline.geojson` },
+      "kz-borders": { type: "geojson", data: `${BASE}data/kz-borders.geojson` },
+      "kz-labels": { type: "geojson", data: `${BASE}data/kz-labels.geojson` },
       "routes-ghost": { type: "geojson", data: emptyFC() },
       "routes-live": { type: "geojson", data: emptyFC() },
       "routes-glow": { type: "geojson", data: emptyFC() },
@@ -41,6 +45,22 @@ export function buildAtlasStyle(): StyleSpecification {
         source: "countries",
         filter: ["==", ["get", "kz"], 1],
         paint: { "fill-outline-color": "#1d2f2a", "fill-color": "#131f1c", "fill-opacity": 0.35 },
+      },
+      {
+        id: "kz-prov-fill",
+        type: "fill",
+        source: "kz-prov",
+        paint: {
+          "fill-color": ["case", ["==", ["get", "city"], 1], "#182b20", "#12231b"],
+          "fill-opacity": 0.92,
+          "fill-antialias": true,
+        },
+      },
+      {
+        id: "kz-prov-borders",
+        type: "line",
+        source: "kz-borders",
+        paint: { "line-color": "#3a5a4e", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.5, 7, 1.1], "line-opacity": 0.85 },
       },
       {
         id: "country-borders",
@@ -92,6 +112,30 @@ export function buildAtlasStyle(): StyleSpecification {
         filter: ["==", ["get", "gk"], "river"],
         minzoom: 3,
         paint: { "line-color": C.river, "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.9, 7, 2.2], "line-opacity": 0.95 },
+      },
+      {
+        id: "kz-outline",
+        type: "line",
+        source: "kz-outline",
+        paint: {
+          "line-color": C.gold,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.15, 8, 2.3],
+          "line-opacity": 0.66,
+          "line-blur": 0.3,
+        },
+      },
+      {
+        id: "kz-labels",
+        type: "symbol",
+        source: "kz-labels",
+        layout: {
+          "text-field": ["get", "kk"],
+          "text-font": ["Noto Sans Regular"],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 4, 9.5, 8, 13],
+          "text-letter-spacing": 1.3,
+          "text-transform": "uppercase",
+        },
+        paint: { "text-color": "#6d8f7f", "text-halo-color": C.void, "text-halo-width": 1.4, "text-opacity": 0.95 },
       },
       {
         id: "ridge",
@@ -217,9 +261,9 @@ export function buildAtlasStyle(): StyleSpecification {
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
           "line-color": ["match", ["get", "side"], "kk", C.kk, "dj", C.dj, "ru", C.ru, C.civ],
-          "line-width": 11,
+          "line-width": 13,
           "line-blur": 7,
-          "line-opacity": 0.16,
+          "line-opacity": 0.24,
         },
       },
       {
@@ -230,8 +274,8 @@ export function buildAtlasStyle(): StyleSpecification {
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
           "line-color": ["match", ["get", "side"], "kk", C.kk, "dj", C.dj, "ru", C.ru, C.civ],
-          "line-width": ["case", ["==", ["get", "side"], "civ"], 2.6, 3.4],
-          "line-opacity": 0.95,
+          "line-width": ["case", ["==", ["get", "side"], "civ"], 3.0, 4.2],
+          "line-opacity": 1,
         },
       },
       {
@@ -243,9 +287,9 @@ export function buildAtlasStyle(): StyleSpecification {
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
           "line-color": ["match", ["get", "side"], "kk", C.kk, "dj", C.dj, "ru", C.ru, C.civ],
-          "line-width": ["case", ["==", ["get", "side"], "civ"], 2.3, 3.1],
+          "line-width": ["case", ["==", ["get", "side"], "civ"], 2.7, 3.8],
           "line-dasharray": [2.7, 1.7],
-          "line-opacity": 0.88,
+          "line-opacity": 0.96,
         },
       },
       {
@@ -257,9 +301,9 @@ export function buildAtlasStyle(): StyleSpecification {
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
           "line-color": ["match", ["get", "side"], "kk", C.kk, "dj", C.dj, "ru", C.ru, C.civ],
-          "line-width": 3.4,
+          "line-width": 4.0,
           "line-dasharray": [0.1, 2.1],
-          "line-opacity": 0.82,
+          "line-opacity": 0.92,
         },
       },
       {

@@ -48,9 +48,9 @@ export default function App() {
   }, [pb, intro, figOpen, srcOpen]);
 
   const tileBadge =
-    tileStatus === "online" ? { t: "Карталар: желіден ✓", cls: "ok" } :
-    tileStatus === "loading" ? { t: "Карталар жүктелуде…", cls: "mid" } :
-    tileStatus === "blocked" ? { t: "Офлайн атлас режимі", cls: "warn" } :
+    tileStatus === "online" ? { t: "Карта: ADM1 негізі ✓", cls: "ok" } :
+    tileStatus === "loading" ? { t: "Карта қабаттарын дайындау…", cls: "mid" } :
+    tileStatus === "blocked" ? { t: "Карта дайын", cls: "warn" } :
     { t: "Тайлдар сөндіулі", cls: "off" };
 
   return (

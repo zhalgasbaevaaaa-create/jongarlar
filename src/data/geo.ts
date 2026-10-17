@@ -130,7 +130,7 @@ export const LABELS: { kk: string; loc: [number, number]; kind: MapLabelKind; si
   { kk: "ТҮРКІСТАН (СЫР БОЙЫ)", loc: [68.6, 41.9], kind: "region", size: "s", spaced: true },
   { kk: "ТАРБАҒАТАЙ ЖОҢҒАРЛЫҚ", loc: [83.0, 47.35], kind: "region", size: "s", spaced: true },
   { kk: "БАЛҚАШ КӨЛІ", loc: [75.6, 46.55], kind: "water", size: "s" },
-  { kk: "АЛАКӨЛ", loc: [80.6, 46.35], kind: "water", size: "s" },
+  { kk: "АЛАКӨЛ", loc: [81.75, 46.12], kind: "water", size: "s" },
   { kk: "ІСЫҚКӨЛ", loc: [77.3, 42.35], kind: "water", size: "s" },
   { kk: "ЗАЙСАН", loc: [83.6, 47.85], kind: "water", size: "s" },
   { kk: "ТЕНГІЗ КӨЛІ", loc: [62.6, 50.45], kind: "water", size: "s" },

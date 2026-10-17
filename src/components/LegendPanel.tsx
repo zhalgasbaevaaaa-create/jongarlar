@@ -65,7 +65,7 @@ export default function LegendPanel({ open, onClose, layers, onLayer, tileStatus
       <div className="lg-sec">
         <div className="lg-cap">Қабаттар</div>
         {[
-          ["tiles", "Желідегі карта (OpenStreetMap тайлдары)"],
+          ["tiles", "Әкімшілік қабат — облыстар (KZ ADM1)"],
           ["labels", "Жер-су атаулары"],
           ["ghost", "Бағыттардың толық жолы"],
           ["arrows", "Бағыт жебелері"],
@@ -79,10 +79,10 @@ export default function LegendPanel({ open, onClose, layers, onLayer, tileStatus
           </label>
         ))}
         <div className="lg-note">
-          {tileStatus === "online" && "● тайлдар желіден жүктелді (OpenStreetMap) — фон нақты географиямен толықты."}
-          {tileStatus === "loading" && "◐ тайлдар жүктелуде…"}
-          {tileStatus === "blocked" && "○ тайлдар қолжетімсіз — офлайн атлас-режим қосылды (Natural Earth деректері). Желі шықса, карта автоматты толысады."}
-          {tileStatus === "off" && "○ тайлдар сөндірулі — таза атлас-режим."}
+          {tileStatus === "online" && "● ADM1 қабаты қосулы — карта негізі: ұсынылған файлдағы облыс шекаралары (интернет талап етілмейді)."}
+          {tileStatus === "loading" && "◐ карта қабаттары дайындалуда…"}
+          {tileStatus === "blocked" && "○ негізгі қабат оқылмады — таза атлас-режим (Natural Earth)."}
+          {tileStatus === "off" && "○ облыс қабаты сөндірулі — таза атлас-режим."}
         </div>
       </div>
 

@@ -160,10 +160,10 @@ export const SOURCES: Record<string, SourceRec> = {
 
 export const DATA_LICENSES: { title: string; url: string; terms: string }[] = [
   {
-      title: "Қабықша (underlay) тайлдары — OpenStreetMap",
-      url: "https://operations.osmfoundation.org/policies/tiles/",
-      terms: "Тегін «tile» сервері © OpenStreetMap үлескерлері деректерін ODbL лицензиясымен таратады; қолдану саясаты бойынша атрибуция міндетті және жоғары жиіліктегі автосұранысқа тыйым салынған — бұл білім беру сайты орташа жүктемеде жұмыс істейді. (Бұрынғы CARTO қабаті оның watermark/кілт саясаты өзгергендіктен алынды.)",
-    },
+    title: "Карта негізі — Қазақстан әкімшілік шекаралары (ADM1, 17 бірлік)",
+    url: "https://github.com/zhalgasbaevaaaa-create/jongarlar",
+    terms: "Пайдаланушы ұсынған kz_1.json (KAZ_adm, DIVA-GIS үлгісіндегі ашық әкімшілік шекаралар жиыны) негізгі карта қабаты ретінде қолданылды; ~111 м дәлдікке жалпылап, сыртқы шекара / облыс шекаралары / облыс атаулары бөлек қабаттарға бөлінді. Сыртқы тайл-серверлер (OpenStreetMap/CARTO) енді мүлдем жүктелмейді — карта толық офлайн.",
+  },
   {
     title: "OpenStreetMap деректері",
     url: "https://www.openstreetmap.org/copyright",
